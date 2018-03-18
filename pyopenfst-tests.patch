@@ -1,0 +1,10 @@
+--- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/test-openfst1.py.orig	2018-03-17 20:33:29.360187559 +0100
++++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/test-openfst1.py	2018-03-17 20:33:35.736854151 +0100
+@@ -11,6 +11,7 @@
+         nst = fst.AddState()
+         self.assertEquals(nst, 1)
+         fst.AddArc(st, 42, 69, 55, nst);
++        fst.SetStart(0) # required for fst.Properties to to SEGV
+         self.assertEquals(fst.NumArcs(st), 1)
+         self.assertEquals(fst.Properties(openfst.kFstProperties, True)
+                           & openfst.kNotAcceptor,

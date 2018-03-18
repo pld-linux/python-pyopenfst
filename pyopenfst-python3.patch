@@ -1,0 +1,19 @@
+--- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_iterators.i.orig	2014-10-28 21:34:59.000000000 +0100
++++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_iterators.i	2018-03-18 08:20:45.129703020 +0100
+@@ -12,7 +12,7 @@
+         "Method to be overriden which returns the iterator's value"
+         return self.itor
+ 
+-    def next(self):
++    def __next__(self):
+         if self.first:
+             self.first = False
+         else:
+@@ -20,6 +20,7 @@
+         if self.itor.Done():
+             raise StopIteration
+         return self.get()
++    next = __next__
+ 
+ class SymbolTable_iter(IteratorProxy):
+     def get(self):
