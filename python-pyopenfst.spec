@@ -4,13 +4,15 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
+%define		rel	2
+
 Summary:	PyOpenFST - Python 2 bindings to OpenFTS library
 Summary(pl.UTF-8):	PyOpenFST - wiązania Pythona 2 do biblioteki OpenFST
 Name:		python-pyopenfst
 Version:	0.4
 %define	snap	20141029
 %define	gitref	eb0c0f9af57bb597f9511e1cc69cbbefe50ff507
-Release:	0.%{snap}.1
+Release:	0.%{snap}.%{rel}
 License:	Apache v2.0
 Group:		Libraries/Python
 Source0:	https://github.com/tmbdev/pyopenfst/archive/%{gitref}/pyopenfst-%{snap}.tar.gz
