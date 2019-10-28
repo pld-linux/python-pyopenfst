@@ -4,7 +4,7 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
-%define		rel	2
+%define		rel	3
 
 Summary:	PyOpenFST - Python 2 bindings to OpenFTS library
 Summary(pl.UTF-8):	PyOpenFST - wiązania Pythona 2 do biblioteki OpenFST
