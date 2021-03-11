@@ -1,6 +1,7 @@
---- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_iterators.i.orig	2014-10-28 21:34:59.000000000 +0100
-+++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_iterators.i	2018-03-18 08:20:45.129703020 +0100
-@@ -12,7 +12,7 @@
+diff -urNp -x '*.orig' pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/openfst_iterators.i pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_iterators.i
+--- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/openfst_iterators.i	2014-10-28 21:34:59.000000000 +0100
++++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_iterators.i	2021-03-11 22:15:33.812391229 +0100
+@@ -12,7 +12,7 @@ class IteratorProxy(object):
          "Method to be overriden which returns the iterator's value"
          return self.itor
  
@@ -9,7 +10,7 @@
          if self.first:
              self.first = False
          else:
-@@ -20,6 +20,7 @@
+@@ -20,6 +20,7 @@ class IteratorProxy(object):
          if self.itor.Done():
              raise StopIteration
          return self.get()

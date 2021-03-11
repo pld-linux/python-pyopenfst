@@ -102,10 +102,14 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 install -d $RPM_BUILD_ROOT%{_examplesdir}/python-pyopenfst-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/python-pyopenfst-%{version}
+%{__sed} -E -i -e '1s,#!\s*/usr/bin/python(\s|$),#!%{__python}\1,' \
+	$RPM_BUILD_ROOT%{_examplesdir}/python-pyopenfst-%{version}/*
 %endif
 %if %{with python3}
 install -d $RPM_BUILD_ROOT%{_examplesdir}/python3-pyopenfst-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/python3-pyopenfst-%{version}
+%{__sed} -E -i -e '1s,#!\s*/usr/bin/python(\s|$),#!%{__python3}\1,' \
+	$RPM_BUILD_ROOT%{_examplesdir}/python3-pyopenfst-%{version}/*
 %endif
 
 %clean

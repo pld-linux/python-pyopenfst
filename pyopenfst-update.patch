@@ -1,17 +1,7 @@
---- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_symtab.i.orig	2014-10-28 21:34:59.000000000 +0100
-+++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_symtab.i	2018-03-12 19:10:25.371843803 +0100
-@@ -19,7 +19,7 @@
-     SymbolTable *Copy() const;
-     %feature("docstring", "Read entries from a text file.");
-     static SymbolTable* ReadText(std::string const & filename,
--                                 bool allow_negative = false);
-+                                 const SymbolTableTextOptions &opts = SymbolTableTextOptions());
-     %feature("docstring", "Write entries to a text file.");
-     bool WriteText(std::string const & filename) const;
-     %feature("docstring", "Read entries from a binary file.");
---- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_properties.i.orig	2014-10-28 21:34:59.000000000 +0100
-+++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_properties.i	2018-03-12 19:02:13.431849424 +0100
-@@ -64,7 +64,7 @@
+diff -urNp -x '*.orig' pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/openfst_properties.i pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_properties.i
+--- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/openfst_properties.i	2014-10-28 21:34:59.000000000 +0100
++++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_properties.i	2021-03-11 22:15:33.655725783 +0100
+@@ -64,7 +64,7 @@ uint64 ComplementProperties(uint64 inpro
  uint64 ComposeProperties(uint64 inprops1, uint64 inprops2);
  uint64 ConcatProperties(uint64 inprops1, uint64 inprops2,
                          bool delayed = false);
@@ -20,7 +10,7 @@
  //uint64 DifferenceProperties(uint64 inprops1, uint64 inprops2);
  uint64 FactorWeightProperties(uint64 inprops);
  //uint64 IntersectProperties(uint64 inprops1, uint64 inprops2);
-@@ -75,7 +75,7 @@
+@@ -75,7 +75,7 @@ uint64 RelabelProperties(uint64 inprops)
  //                          ssize_t root,
  //                          bool epsilon_on_replace,
  //                          bool no_empty_fst);
@@ -29,3 +19,15 @@
  uint64 ReweightProperties(uint64 inprops);
  uint64 RmEpsilonProperties(uint64 inprops, bool delayed = false);
  uint64 SynchronizeProperties(uint64 inprops);
+diff -urNp -x '*.orig' pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/openfst_symtab.i pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_symtab.i
+--- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/openfst_symtab.i	2014-10-28 21:34:59.000000000 +0100
++++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/openfst_symtab.i	2021-03-11 22:15:33.655725783 +0100
+@@ -19,7 +19,7 @@ struct SymbolTable {
+     SymbolTable *Copy() const;
+     %feature("docstring", "Read entries from a text file.");
+     static SymbolTable* ReadText(std::string const & filename,
+-                                 bool allow_negative = false);
++                                 const SymbolTableTextOptions &opts = SymbolTableTextOptions());
+     %feature("docstring", "Write entries to a text file.");
+     bool WriteText(std::string const & filename) const;
+     %feature("docstring", "Read entries from a binary file.");

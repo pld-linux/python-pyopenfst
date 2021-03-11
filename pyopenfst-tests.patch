@@ -1,8 +1,9 @@
---- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/test-openfst1.py.orig	2018-03-17 20:33:29.360187559 +0100
-+++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/test-openfst1.py	2018-03-17 20:33:35.736854151 +0100
-@@ -11,6 +11,7 @@
+diff -urNp -x '*.orig' pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/test-openfst1.py pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/test-openfst1.py
+--- pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507.org/test-openfst1.py	2014-10-28 21:34:59.000000000 +0100
++++ pyopenfst-eb0c0f9af57bb597f9511e1cc69cbbefe50ff507/test-openfst1.py	2021-03-11 22:15:33.739058467 +0100
+@@ -10,6 +10,7 @@ class Creation(unittest.TestCase):
+         self.assertEquals(fst.NumStates(), 1)
          nst = fst.AddState()
-         self.assertEquals(nst, 1)
          fst.AddArc(st, 42, 69, 55, nst);
 +        fst.SetStart(0) # required for fst.Properties to to SEGV
          self.assertEquals(fst.NumArcs(st), 1)
