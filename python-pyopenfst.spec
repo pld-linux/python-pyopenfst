@@ -61,9 +61,9 @@ biblioteki.
 
 %prep
 %setup -q -n pyopenfst-%{gitref}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P 0 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
 
 %build
 # setup.py uses CFLAGS for C++; openfst requires C++11
